@@ -1,4 +1,5 @@
 import java.util.Scanner;
+import java.util.*;
 
 public class Question5
 {
@@ -27,6 +28,27 @@ public class Question5
      */
      
     Scanner in = new Scanner(System.in);
+    
+    int US = in.nextInt();
+    Map<String, Integer> map = new HashMap<String, Integer>();
+
+    for (int i = 0; i <= US; i++){
+      String US2 = in.nextLine();
+      
+      Integer V = map.get(US2);
+      map.put(US2, V == null ? 1 : V + 1);
+      
+    }
+
+    Map.Entry<String, Integer> mx = null;
+
+    for (Map.Entry<String, Integer> e : map.entrySet()){
+      if(mx == null || e.getValue() > mx.getValue()){
+        mx = e;
+      }
+    }
+
+    System.out.println(mx.getKey());
     
   }
 }
